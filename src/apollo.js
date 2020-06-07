@@ -1,8 +1,12 @@
 import ApolloClient from "apollo-boost";
 
-const client = ApolloClient({
+const client = new ApolloClient({
   uri: "http://localhost:4000",
+  defaultOptions: {
+    watchQuery: {
+      fetchPolicy: "cache-and-network",
+    },
+  },
 });
-console.log(client);
 
 export default client;
